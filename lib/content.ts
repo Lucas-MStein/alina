@@ -67,3 +67,41 @@ export const galleryImages = [
         description: 'Eine kleine Galerie für einen besonderen Menschen.',
     },
 ]
+
+export const quizQuestions = [
+    {
+        question: 'Welcher Moment passt am besten zu uns?',
+        answers: [
+            'Ein perfekter Plan, der genau so umgesetzt wird',
+            'Ein schöner Moment, der spontan besonders wird',
+            'Nur Stress und zu wenig Zeit',
+            'Nichts davon',
+        ],
+        correctIndex: 1,
+    },
+    {
+        question: 'Was macht gemeinsame Zeit mit dir für mich besonders?',
+        answers: [
+            'Weil alles dadurch leichter und schöner wirkt',
+            'Weil man dabei produktiver ist',
+            'Weil dann weniger los ist',
+            'Weil es einfach zufällig nett ist',
+        ],
+        correctIndex: 0,
+    },
+    {
+        question: 'Was beschreibt dich am besten?',
+        answers: ['Chaotisch', 'Besonders, liebevoll und einzigartig', 'Immer ernst', 'Ganz still und unnahbar'],
+        correctIndex: 1,
+    },
+    {
+        question: 'Worum geht es auf dieser Website eigentlich?',
+        answers: [
+            'Um irgendein Designprojekt',
+            'Um eine kleine digitale Überraschung für dich',
+            'Um ein Testprojekt für Next.js',
+            'Um einen Zufall',
+        ],
+        correctIndex: 1,
+    },
+]

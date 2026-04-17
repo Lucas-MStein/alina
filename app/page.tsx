@@ -38,6 +38,12 @@ export default function Home() {
                     >
                         Zur Galerie
                     </Link>
+                    <Link
+                        href="/quiz"
+                        className="inline-flex items-center justify-center rounded-full border border-sky-200 bg-white px-6 py-3 text-sm font-medium text-slate-900 transition hover:scale-[1.02] hover:bg-sky-50"
+                    >
+                        Zum Quiz
+                    </Link>
                 </div>
             </section>
 
