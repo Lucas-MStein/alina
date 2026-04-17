@@ -41,9 +41,11 @@ function CountdownCard({
     label: string
 }) {
     return (
-        <div className="rounded-3xl border border-sky-100 bg-white/80 p-4 shadow-sm backdrop-blur">
-            <div className="text-3xl font-bold text-slate-900 sm:text-4xl">{value}</div>
-            <div className="mt-1 text-xs uppercase tracking-[0.2em] text-slate-500">
+        <div className="rounded-[1.5rem] border border-sky-100 bg-white/85 px-4 py-5 shadow-sm backdrop-blur sm:rounded-3xl sm:p-4">
+            <div className="text-2xl font-bold leading-none text-slate-900 sm:text-4xl">
+                {value}
+            </div>
+            <div className="mt-2 text-[10px] uppercase tracking-[0.28em] text-slate-500 sm:mt-1 sm:text-xs sm:tracking-[0.2em]">
                 {label}
             </div>
         </div>
@@ -77,7 +79,7 @@ export default function Countdown({
     if (Number.isNaN(targetMs)) {
         return (
             <div
-                className={`mt-8 rounded-2xl border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-700 ${className}`}
+                className={`w-full rounded-2xl border border-sky-200 bg-sky-50 px-4 py-3 text-sm text-sky-700 ${className}`}
             >
                 Ungültiges Zieldatum.
             </div>
@@ -91,12 +93,12 @@ export default function Countdown({
     if (!loading && current.total <= 0) {
         return (
             <div
-                className={`mt-8 rounded-3xl bg-slate-900 px-6 py-5 text-center text-white shadow-lg ${className}`}
+                className={`w-full rounded-[1.75rem] bg-slate-900 px-6 py-5 text-center text-white shadow-lg ${className}`}
             >
-                <p className="text-sm uppercase tracking-[0.3em] text-white/60">
+                <p className="text-xs uppercase tracking-[0.28em] text-white/60 sm:text-sm sm:tracking-[0.3em]">
                     Countdown
                 </p>
-                <p className="mt-2 text-2xl font-semibold">{expiredText}</p>
+                <p className="mt-2 text-xl font-semibold sm:text-2xl">{expiredText}</p>
             </div>
         )
     }
@@ -110,14 +112,14 @@ export default function Countdown({
 
     return (
         <section
-            className={`mt-10 w-full max-w-3xl ${className}`}
+            className={`w-full max-w-3xl ${className}`}
             aria-label="Geburtstags-Countdown"
         >
-            <p className="mb-4 text-sm uppercase tracking-[0.25em] text-sky-600">
+            <p className="mb-3 text-xs uppercase tracking-[0.3em] text-sky-600 sm:mb-4 sm:text-sm sm:tracking-[0.25em]">
                 {title}
             </p>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
                 {items.map((item) => (
                     <CountdownCard
                         key={item.label}
