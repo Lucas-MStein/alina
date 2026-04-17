@@ -10,8 +10,15 @@ export function isUnlocked(dateString: string) {
 }
 
 export function formatGermanDate(dateString: string) {
+
     return new Intl.DateTimeFormat('de-DE', {
+
         dateStyle: 'medium',
+
         timeStyle: 'short',
+
+        timeZone: 'Europe/Berlin',
+
     }).format(new Date(dateString))
+
 }
