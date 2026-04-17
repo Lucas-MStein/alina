@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Countdown from '@/components/Countdown'
 import Letter from '@/components/Letter'
 import MemoryCards from '@/components/MemoryCards'
@@ -23,12 +24,21 @@ export default function Home() {
 
                 <Countdown target="2026-08-04T00:00:00+02:00" />
 
-                <a
-                    href="#momente"
-                    className="mt-10 rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:scale-[1.02]"
-                >
-                    Überraschung starten
-                </a>
+                <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                    <a
+                        href="#momente"
+                        className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-medium text-white transition hover:scale-[1.02]"
+                    >
+                        Überraschung starten
+                    </a>
+
+                    <Link
+                        href="/gallery"
+                        className="inline-flex items-center justify-center rounded-full border border-sky-200 bg-white px-6 py-3 text-sm font-medium text-slate-900 transition hover:scale-[1.02] hover:bg-sky-50"
+                    >
+                        Zur Galerie
+                    </Link>
+                </div>
             </section>
 
             <section id="momente" className="mx-auto max-w-5xl px-6 py-20">
