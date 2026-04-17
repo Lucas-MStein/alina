@@ -22,7 +22,7 @@ export const memories = [
 ]
 
 export const letterText = [
-    'Alles Gute zum Geburtstag, [ihr Name].',
+    'Alles Gute zum Geburtstag, Alina.',
     'Ich wollte dir nicht einfach nur gratulieren, sondern dir etwas machen, das persönlicher ist und nur für dich gedacht ist.',
     'Du bist ein Mensch, der auf eine ganz besondere Art wundervoll, liebevoll und einzigartig ist. Und ich bin sehr dankbar für die Zeit mit dir und für all die Erinnerungen, die wir teilen.',
     'Ich wünsche dir für dein neues Lebensjahr ganz viel Glück, Gesundheit, schöne Überraschungen und vor allem viele Momente, in denen du genauso strahlst wie heute.',
