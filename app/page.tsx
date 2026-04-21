@@ -8,13 +8,10 @@ import { letterText, memories } from '@/lib/content'
 import { REVEAL_DATES, isUnlocked } from '@/lib/reveal'
 
 export default function Home() {
-    const heroButtonsUnlocked = isUnlocked(
-        'heroButtons',
-        REVEAL_DATES.heroButtons
-    )
-    const memoriesUnlocked = isUnlocked('memories', REVEAL_DATES.memories)
-    const letterUnlocked = isUnlocked('letter', REVEAL_DATES.letter)
-    const surpriseUnlocked = isUnlocked('surprise', REVEAL_DATES.surprise)
+    const heroButtonsUnlocked = isUnlocked(REVEAL_DATES.heroButtons)
+    const memoriesUnlocked = isUnlocked(REVEAL_DATES.memories)
+    const letterUnlocked = isUnlocked(REVEAL_DATES.letter)
+    const surpriseUnlocked = isUnlocked(REVEAL_DATES.surprise)
 
     return (
         <main className="min-h-screen bg-gradient-to-b from-sky-100 via-blue-50 to-white">

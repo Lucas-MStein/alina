@@ -5,24 +5,20 @@ export const REVEAL_DATES = {
     surprise: '2026-08-04T00:00:00+02:00',
 } as const
 
-const DEV_UNLOCK_OVERRIDES = {
-    heroButtons: false,
-    memories: true,
-    letter: true,
-    surprise: true,
-} as const
-
-export type RevealKey = keyof typeof REVEAL_DATES
-
-export function isUnlocked(key: RevealKey, dateString: string) {
-    if (DEV_UNLOCK_OVERRIDES[key]) return true
+export function isUnlocked(dateString: string) {
     return new Date().getTime() >= new Date(dateString).getTime()
 }
 
 export function formatGermanDate(dateString: string) {
+
     return new Intl.DateTimeFormat('de-DE', {
+
         dateStyle: 'medium',
+
         timeStyle: 'short',
+
         timeZone: 'Europe/Berlin',
+
     }).format(new Date(dateString))
+
 }
