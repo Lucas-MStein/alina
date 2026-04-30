@@ -44,13 +44,6 @@ export default function Home() {
                     variant="compact"
                 >
                     <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-                        <a
-                            href="#momente"
-                            className="inline-flex items-center justify-center rounded-full bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:scale-[1.02] sm:px-6"
-                        >
-                            Überraschung starten
-                        </a>
-
                         <Link
                             href="/gallery"
                             className="inline-flex items-center justify-center rounded-full border border-sky-200 bg-white px-5 py-3 text-sm font-medium text-slate-900 transition hover:scale-[1.02] hover:bg-sky-50 sm:px-6"
