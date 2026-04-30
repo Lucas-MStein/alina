@@ -7,13 +7,23 @@ import SurpriseButton from '@/components/SurpriseButton'
 import { letterText, memories } from '@/lib/content'
 import { REVEAL_DATES, isUnlocked } from '@/lib/reveal'
 
-export default function Home() {
-    const heroButtonsUnlocked = isUnlocked(REVEAL_DATES.heroButtons)
-    const memoriesUnlocked = isUnlocked(REVEAL_DATES.memories)
-    const letterUnlocked = isUnlocked(REVEAL_DATES.letter)
-    const surpriseUnlocked = isUnlocked(REVEAL_DATES.surprise)
+export default async function Home({
+    searchParams,
+}: {
+    searchParams: Promise<{ dev?: string }>
+}) {
+    const params = await searchParams
+    const devMode = params.dev === '1'
+
+    const unlock = (date: string) => devMode || isUnlocked(date)
+
+    const heroButtonsUnlocked = unlock(REVEAL_DATES.heroButtons)
+    const memoriesUnlocked = unlock(REVEAL_DATES.memories)
+    const letterUnlocked = unlock(REVEAL_DATES.letter)
+    const surpriseUnlocked = unlock(REVEAL_DATES.surprise)
 
     return (
+        <>
         <main className="min-h-screen bg-gradient-to-b from-sky-100 via-blue-50 to-white">
             <section className="mx-auto flex max-w-5xl flex-col items-center justify-center px-5 pb-12 pt-10 text-center sm:min-h-screen sm:px-6 sm:pb-0 sm:pt-0">
                 <p className="text-xs uppercase tracking-[0.35em] text-sky-600 sm:text-sm">
@@ -113,5 +123,12 @@ export default function Home() {
                 </section>
             </LockedSection>
         </main>
+
+        {devMode && (
+            <div className="fixed bottom-4 right-4 z-50 rounded-full bg-amber-400 px-3 py-1.5 text-xs font-semibold text-amber-900 shadow-lg ring-2 ring-amber-300">
+                🔧 Dev-Modus
+            </div>
+        )}
+    </>
     )
 }
