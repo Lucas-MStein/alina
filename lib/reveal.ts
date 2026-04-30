@@ -5,7 +5,22 @@ export const REVEAL_DATES = {
     surprise: '2026-08-04T00:00:00+02:00',
 } as const
 
-export function isUnlocked(dateString: string) {
+export type RevealKey = keyof typeof REVEAL_DATES
+
+const DEV_UNLOCK_OVERRIDES: Record<RevealKey, boolean> = {
+    heroButtons: false,
+    memories: true,
+    letter: true,
+    surprise: true,
+}
+
+export function isUnlocked(key: RevealKey, dateString: string) {
+    const isDevelopment = process.env.NODE_ENV === 'development'
+
+    if (isDevelopment && DEV_UNLOCK_OVERRIDES[key]) {
+        return true
+    }
+
     return new Date().getTime() >= new Date(dateString).getTime()
 }
 

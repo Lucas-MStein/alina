@@ -20,7 +20,7 @@ export default function LockedSection({
                                           variant = 'default',
                                       }: LockedSectionProps) {
     if (unlocked) {
-        return <>{children}</>
+        return <div className={className}>{children}</div>
     }
 
     if (variant === 'compact') {
