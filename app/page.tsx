@@ -6,6 +6,7 @@ import MemoryCards from '@/components/MemoryCards'
 import SurpriseButton from '@/components/SurpriseButton'
 import { letterText, memories } from '@/lib/content'
 import { REVEAL_DATES, isUnlocked } from '@/lib/reveal'
+import TermsFooter from '@/components/TermsFooter'
 
 export default function Home() {
     const heroButtonsUnlocked = isUnlocked('heroButtons', REVEAL_DATES.heroButtons)
@@ -105,6 +106,7 @@ export default function Home() {
                     <SurpriseButton />
                 </section>
             </LockedSection>
+            <TermsFooter />
         </main>
     )
 }
