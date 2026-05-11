@@ -18,7 +18,6 @@ function HeartIcon() {
 export default function TermsFooter() {
     const [isOpen, setIsOpen] = useState(false)
     const [accepted, setAccepted] = useState(false)
-    const [notice, setNotice] = useState<string | null>(null)
 
     function handleAccept() {
         setAccepted(true)
@@ -31,7 +30,7 @@ export default function TermsFooter() {
                 <div className="flex items-center justify-center gap-3 text-xs text-slate-400">
                     <button
                         type="button"
-                        onClick={() => setNotice('Impressum folgt. Verantwortlich: diese kleine Geburtstagsüberraschung.')}
+                        onClick={() => undefined}
                         className="underline-offset-4 transition hover:text-sky-600 hover:underline"
                     >
                         Impressum
@@ -41,10 +40,7 @@ export default function TermsFooter() {
 
                     <button
                         type="button"
-                        onClick={() => {
-                            setNotice(null)
-                            setIsOpen(true)
-                        }}
+                        onClick={() => setIsOpen(true)}
                         className="underline-offset-4 transition hover:text-sky-600 hover:underline"
                     >
                         AGB
@@ -54,18 +50,12 @@ export default function TermsFooter() {
 
                     <button
                         type="button"
-                        onClick={() => setNotice('Datenschutz: Diese Seite speichert keine Daten. Nur Erinnerungen. 💙')}
+                        onClick={() => undefined}
                         className="underline-offset-4 transition hover:text-sky-600 hover:underline"
                     >
                         Datenschutz
                     </button>
                 </div>
-
-                {notice && (
-                    <p className="mx-auto mt-3 max-w-md text-xs leading-5 text-slate-500">
-                        {notice}
-                    </p>
-                )}
 
                 {accepted && (
                     <p className="mt-3 text-xs text-slate-500">
