@@ -17,7 +17,7 @@ function HeartIcon() {
 
 export default function TermsFooter() {
     const [isOpen, setIsOpen] = useState(false)
-    const [accepted, setAccepted] = useState(false)
+    const [accepted, setAccepted] = useState(true)
 
     function handleAccept() {
         setAccepted(true)
