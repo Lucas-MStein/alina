@@ -7,6 +7,7 @@ import SurpriseButton from '@/components/SurpriseButton'
 import { letterText, memories } from '@/lib/content'
 import { REVEAL_DATES, isUnlocked } from '@/lib/reveal'
 import TermsFooter from '@/components/TermsFooter'
+import MessageBubble from '@/components/MessageBubble'
 
 export default function Home() {
     const heroButtonsUnlocked = isUnlocked('heroButtons', REVEAL_DATES.heroButtons)
@@ -107,6 +108,7 @@ export default function Home() {
                 </section>
             </LockedSection>
             <TermsFooter />
+            <MessageBubble />
         </main>
     )
 }
