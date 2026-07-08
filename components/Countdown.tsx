@@ -7,6 +7,7 @@ type CountdownProps = {
     title?: string
     expiredText?: string
     className?: string
+    variant?: 'default' | 'embedded'
 }
 
 type TimeLeft = {
@@ -41,11 +42,11 @@ function CountdownCard({
     label: string
 }) {
     return (
-        <div className="rounded-[1.5rem] border border-sky-100 bg-white/85 px-4 py-5 shadow-sm backdrop-blur sm:rounded-3xl sm:p-4">
-            <div className="text-2xl font-bold leading-none text-slate-900 sm:text-4xl">
+        <div className="flex flex-col items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 px-3 py-4 shadow-inner sm:p-4">
+            <div className="font-[family:var(--font-mono)] text-3xl font-bold leading-none tracking-tighter text-slate-800 tabular-nums sm:text-5xl">
                 {value}
             </div>
-            <div className="mt-2 text-[10px] uppercase tracking-[0.28em] text-slate-500 sm:mt-1 sm:text-xs sm:tracking-[0.2em]">
+            <div className="mt-2 font-[family:var(--font-mono)] text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 sm:text-xs">
                 {label}
             </div>
         </div>
@@ -57,6 +58,7 @@ export default function Countdown({
                                       title = 'Noch bis zum Geburtstag',
                                       expiredText = 'Heute ist dein großer Tag 🎉',
                                       className = '',
+                                      variant = 'default',
                                   }: CountdownProps) {
     const targetMs = useMemo(() => new Date(target).getTime(), [target])
     const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null)
@@ -93,9 +95,9 @@ export default function Countdown({
     if (!loading && current.total <= 0) {
         return (
             <div
-                className={`w-full rounded-[1.75rem] bg-slate-900 px-6 py-5 text-center text-white shadow-lg ${className}`}
+                className={`w-full rounded-2xl bg-slate-900 px-6 py-5 text-center text-white shadow-lg ${className}`}
             >
-                <p className="text-xs uppercase tracking-[0.28em] text-white/60 sm:text-sm sm:tracking-[0.3em]">
+                <p className="font-[family:var(--font-mono)] text-xs font-bold uppercase tracking-[0.28em] text-white/60">
                     Countdown
                 </p>
                 <p className="mt-2 text-xl font-semibold sm:text-2xl">{expiredText}</p>
@@ -110,16 +112,33 @@ export default function Countdown({
         { label: 'Sekunden', value: loading ? '--' : pad(current.seconds) },
     ]
 
+    if (variant === 'embedded') {
+        return (
+            <div
+                className={`grid grid-cols-4 gap-2 sm:gap-4 ${className}`}
+                aria-label="Geburtstags-Countdown"
+            >
+                {items.map((item) => (
+                    <CountdownCard
+                        key={item.label}
+                        value={item.value}
+                        label={item.label}
+                    />
+                ))}
+            </div>
+        )
+    }
+
     return (
         <section
             className={`w-full max-w-3xl ${className}`}
             aria-label="Geburtstags-Countdown"
         >
-            <p className="mb-3 text-xs uppercase tracking-[0.3em] text-sky-600 sm:mb-4 sm:text-sm sm:tracking-[0.25em]">
+            <p className="mb-3 font-[family:var(--font-mono)] text-xs font-bold uppercase tracking-[0.28em] text-sky-600 sm:mb-4">
                 {title}
             </p>
 
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+            <div className="grid grid-cols-4 gap-2 sm:gap-4">
                 {items.map((item) => (
                     <CountdownCard
                         key={item.label}

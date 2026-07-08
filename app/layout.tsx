@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
-import { Playfair_Display, Inter } from 'next/font/google'
+import { Playfair_Display, Inter, JetBrains_Mono } from 'next/font/google'
+import TermsProvider from '@/components/TermsProvider'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -12,16 +13,22 @@ const inter = Inter({
     variable: '--font-sans',
 })
 
+const jetbrainsMono = JetBrains_Mono({
+    subsets: ['latin'],
+    variable: '--font-mono',
+})
+
 export const metadata: Metadata = {
     metadataBase: new URL('https://alinaist23.de'),
-    title: 'Alles Gute zum Geburtstag 💙',
-    description: 'Eine kleine digitale Überraschung voller Erinnerungen, lieber Worte und besonderer Momente.',
+    title: 'Alina 23.0 — alinaist23.de',
+    description:
+        'Ein kleines digitales Update mit Erinnerungen, Nachrichten und Dingen, die ich dir nicht einfach nur per WhatsApp schicken wollte.',
     openGraph: {
-        title: 'Alles Gute zum Geburtstag 💙',
+        title: 'Alina 23.0 — alinaist23.de',
         description:
-            'Eine kleine digitale Überraschung voller Erinnerungen, lieber Worte und besonderer Momente.',
+            'Ein kleines digitales Update mit Erinnerungen, Nachrichten und Dingen, die ich dir nicht einfach nur per WhatsApp schicken wollte.',
         url: 'https://alinaist23.de',
-        siteName: 'Geburtstags-Überraschung',
+        siteName: 'alinaist23.de',
         locale: 'de_DE',
         type: 'website',
         images: [
@@ -29,7 +36,7 @@ export const metadata: Metadata = {
                 url: '/opengraph-image.jpg',
                 width: 1200,
                 height: 630,
-                alt: 'Geburtstags-Überraschung in Blau',
+                alt: 'Alina 23.0 — Release Dashboard',
             },
         ],
     },
@@ -43,9 +50,9 @@ export default function RootLayout({
     return (
         <html lang="de">
         <body
-            className={`${playfair.variable} ${inter.variable} bg-slate-50 text-slate-800 antialiased`}
+            className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable} bg-[#FAFCFF] text-slate-800 antialiased selection:bg-sky-200 selection:text-sky-900`}
         >
-        {children}
+        <TermsProvider>{children}</TermsProvider>
         </body>
         </html>
     )

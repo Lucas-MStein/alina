@@ -68,6 +68,108 @@ export const galleryImages = [
     },
 ]
 
+export type ReleaseNote = {
+    kind: 'info' | 'feature' | 'issue' | 'patch'
+    label: string
+    title: string
+    text: string
+}
+
+export const releaseNotes: ReleaseNote[] = [
+    {
+        kind: 'info',
+        label: 'Version Info',
+        title: 'Version 23.0',
+        text: 'Geplantes Release: 04.08.2026 · Build läuft im Hintergrund.',
+    },
+    {
+        kind: 'feature',
+        label: 'Top Feature',
+        title: 'Alina bleibt Alina.',
+        text: 'Das Kernsystem läuft stabil, charmant und fehlerfrei weiter.',
+    },
+    {
+        kind: 'issue',
+        label: 'Known Issue',
+        title: 'Manchmal ist alles etwas viel.',
+        text: 'Bug wird noch untersucht. Bester Workaround: Kaffee, Pausen & atmen.',
+    },
+    {
+        kind: 'patch',
+        label: 'Patch Note',
+        title: 'System-Erleichterung.',
+        text: 'Diese Seite versucht, alles ein kleines bisschen leichter zu machen.',
+    },
+]
+
+export type ModuleKey =
+    | 'memories'
+    | 'gallery'
+    | 'quiz'
+    | 'letter'
+    | 'surprise'
+    | 'terms'
+
+export type ModuleDefinition = {
+    key: ModuleKey
+    icon:
+        | 'database'
+        | 'image'
+        | 'brain'
+        | 'message'
+        | 'gift'
+        | 'file'
+    title: string
+    description: string
+    href?: string
+    action?: 'scroll' | 'terms'
+}
+
+export const modules: ModuleDefinition[] = [
+    {
+        key: 'memories',
+        icon: 'database',
+        title: 'Erinnerungen',
+        description: 'Ein kleines Archiv unserer schönsten Momente.',
+        action: 'scroll',
+    },
+    {
+        key: 'gallery',
+        icon: 'image',
+        title: 'Galerie',
+        description: 'Visuelle Logs unserer gemeinsamen Zeit.',
+        href: '/gallery',
+    },
+    {
+        key: 'quiz',
+        icon: 'brain',
+        title: 'Quiz',
+        description: 'Ein kleines Quiz über uns — mit dem ein oder anderen Easter Egg.',
+        href: '/quiz',
+    },
+    {
+        key: 'letter',
+        icon: 'message',
+        title: 'Brief',
+        description: 'Eine längere Textdatei — verschlüsselt bis zum Release.',
+        action: 'scroll',
+    },
+    {
+        key: 'surprise',
+        icon: 'gift',
+        title: 'Surprise',
+        description: 'Ein undokumentiertes Feature. Wird pünktlich zum Release ausgeliefert.',
+        action: 'scroll',
+    },
+    {
+        key: 'terms',
+        icon: 'file',
+        title: 'AGB',
+        description: 'Allgemeine Beziehungsbedingungen. Bitte bei Gelegenheit lesen.',
+        action: 'terms',
+    },
+]
+
 export const quizQuestions = [
     {
         question: 'Welcher Moment passt am besten zu uns?',
