@@ -1,114 +1,105 @@
-import Link from 'next/link'
-import Countdown from '@/components/Countdown'
+import HeroDashboard from '@/components/HeroDashboard'
+import ReleaseNotes from '@/components/ReleaseNotes'
+import ModuleOverview from '@/components/ModuleOverview'
 import Letter from '@/components/Letter'
 import LockedSection from '@/components/LockedSection'
 import MemoryCards from '@/components/MemoryCards'
+import MessageBubble from '@/components/MessageBubble'
 import SurpriseButton from '@/components/SurpriseButton'
+import TermsFooter from '@/components/TermsFooter'
+import { HeartIcon, TerminalIcon } from '@/components/Icons'
 import { letterText, memories } from '@/lib/content'
 import { REVEAL_DATES, isUnlocked } from '@/lib/reveal'
-import TermsFooter from '@/components/TermsFooter'
-import MessageBubble from '@/components/MessageBubble'
 
 export default function Home() {
-    const heroButtonsUnlocked = isUnlocked('heroButtons', REVEAL_DATES.heroButtons)
     const memoriesUnlocked = isUnlocked('memories', REVEAL_DATES.memories)
     const letterUnlocked = isUnlocked('letter', REVEAL_DATES.letter)
     const surpriseUnlocked = isUnlocked('surprise', REVEAL_DATES.surprise)
 
     return (
-        <main className="min-h-screen bg-gradient-to-b from-sky-100 via-blue-50 to-white">
-            <section className="mx-auto flex max-w-5xl flex-col items-center justify-center px-5 pb-12 pt-10 text-center sm:min-h-screen sm:px-6 sm:pb-0 sm:pt-0">
-                <p className="text-xs uppercase tracking-[0.35em] text-sky-600 sm:text-sm">
-                    Für Alina
-                </p>
+        <div className="relative min-h-screen overflow-x-hidden bg-[#FAFCFF] pb-24 md:pb-0">
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute left-[-10%] top-[-10%] h-[50%] w-[50%] rounded-full bg-sky-100/50 blur-[120px]"
+            />
+            <div
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[-10%] top-[20%] h-[40%] w-[40%] rounded-full bg-blue-50/60 blur-[100px]"
+            />
 
-                <h1 className="mt-3 font-[family:var(--font-heading)] text-4xl font-bold leading-none text-slate-900 sm:mt-4 sm:text-7xl">
-                    Alles Gute
-                    <br />
-                    zum Geburtstag ✨
-                </h1>
+            <nav className="sticky top-0 z-40 flex w-full items-center justify-between border-b border-sky-100/50 bg-white/60 px-4 py-4 backdrop-blur-md sm:px-6">
+                <div className="flex items-center gap-2 text-slate-700">
+                    <TerminalIcon className="h-4 w-4 text-sky-500" />
+                    <span className="font-[family:var(--font-mono)] text-sm font-medium">
+                        alinaist23.de
+                    </span>
+                </div>
 
-                <p className="mt-4 max-w-xl text-base leading-7 text-slate-600 sm:mt-6 sm:max-w-2xl sm:text-lg sm:leading-8">
-                    Eine kleine digitale Überraschung mit Erinnerungen, lieben Worten und
-                    einem besonderen Moment nur für dich.
-                </p>
+                <div className="flex items-center gap-2 rounded-full border border-sky-100 bg-sky-50 px-3 py-1.5 shadow-sm">
+                    <span
+                        aria-hidden="true"
+                        className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"
+                    />
+                    <span className="font-[family:var(--font-mono)] text-[10px] font-bold uppercase tracking-wider text-sky-800">
+                        System Online
+                    </span>
+                </div>
+            </nav>
 
-                <Countdown
-                    target="2026-08-04T00:00:00+02:00"
-                    className="mt-8 sm:mt-10"
-                />
+            <main className="relative z-10 mx-auto max-w-5xl space-y-24 px-4 py-12 sm:space-y-32 sm:px-6 md:py-20 lg:px-8">
+                <HeroDashboard />
 
-                <LockedSection
-                    unlocked={heroButtonsUnlocked}
-                    unlockDate={REVEAL_DATES.heroButtons}
-                    title="Bald geht es weiter"
-                    className="mt-8 w-full max-w-3xl sm:mt-10"
-                    variant="compact"
-                >
-                    <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-                        <Link
-                            href="/gallery"
-                            className="inline-flex items-center justify-center rounded-full border border-sky-200 bg-white px-5 py-3 text-sm font-medium text-slate-900 transition hover:scale-[1.02] hover:bg-sky-50 sm:px-6"
-                        >
-                            Zur Galerie
-                        </Link>
+                <ReleaseNotes />
 
-                        <Link
-                            href="/quiz"
-                            className="inline-flex items-center justify-center rounded-full border border-sky-200 bg-white px-5 py-3 text-sm font-medium text-slate-900 transition hover:scale-[1.02] hover:bg-sky-50 sm:px-6"
-                        >
-                            Zum Quiz
-                        </Link>
-                    </div>
-                </LockedSection>
-            </section>
+                <ModuleOverview />
 
-            <LockedSection
-                unlocked={memoriesUnlocked}
-                unlockDate={REVEAL_DATES.memories}
-                title="Erinnerungen werden bald freigeschaltet"
-                className="mx-auto max-w-5xl px-5 py-16 sm:px-6 sm:py-20"
-            >
-                <section id="momente">
-                    <div className="mb-10 text-center">
-                        <p className="text-sm uppercase tracking-[0.3em] text-sky-600">
-                            Erinnerungen
-                        </p>
-                        <h2 className="mt-3 font-[family:var(--font-heading)] text-4xl font-semibold text-slate-900">
-                            Unsere schönsten Momente
+                <section id="memories" className="space-y-8">
+                    <div className="flex items-center gap-3">
+                        <div className="rounded-xl bg-rose-100 p-2.5 text-rose-500">
+                            <HeartIcon className="h-6 w-6" />
+                        </div>
+                        <h2 className="text-3xl font-bold tracking-tight text-slate-800">
+                            Memory Archive
                         </h2>
                     </div>
 
-                    <MemoryCards memories={memories} />
+                    <LockedSection
+                        unlocked={memoriesUnlocked}
+                        unlockDate={REVEAL_DATES.memories}
+                        title="Erinnerungen werden bald freigeschaltet"
+                    >
+                        <MemoryCards memories={memories} />
+                    </LockedSection>
                 </section>
-            </LockedSection>
 
-            <LockedSection
-                unlocked={letterUnlocked}
-                unlockDate={REVEAL_DATES.letter}
-                title="Der Brief kommt später"
-                className="mx-auto max-w-4xl px-5 py-8 sm:px-6 sm:py-10"
-            >
-                <section>
-                    <Letter title="Ein Brief für dich" text={letterText} />
+                <section id="letter">
+                    <LockedSection
+                        unlocked={letterUnlocked}
+                        unlockDate={REVEAL_DATES.letter}
+                        title="Der Brief kommt später"
+                    >
+                        <Letter title="Ein Brief für dich" text={letterText} />
+                    </LockedSection>
                 </section>
-            </LockedSection>
 
-            <LockedSection
-                unlocked={surpriseUnlocked}
-                unlockDate={REVEAL_DATES.surprise}
-                title="Die letzte Überraschung wartet noch"
-                className="mx-auto max-w-4xl px-5 py-14 text-center sm:px-6 sm:py-16"
-            >
-                <section>
-                    <p className="mb-6 text-sm uppercase tracking-[0.3em] text-sky-600">
-                        Noch eine Kleinigkeit
-                    </p>
-                    <SurpriseButton />
+                <section id="surprise">
+                    <LockedSection
+                        unlocked={surpriseUnlocked}
+                        unlockDate={REVEAL_DATES.surprise}
+                        title="Die letzte Überraschung wartet noch"
+                    >
+                        <div className="text-center">
+                            <p className="mb-6 font-[family:var(--font-mono)] text-xs font-bold uppercase tracking-[0.28em] text-sky-600">
+                                Noch eine Kleinigkeit
+                            </p>
+                            <SurpriseButton />
+                        </div>
+                    </LockedSection>
                 </section>
-            </LockedSection>
+            </main>
+
             <TermsFooter />
             <MessageBubble />
-        </main>
+        </div>
     )
 }

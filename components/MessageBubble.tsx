@@ -32,27 +32,32 @@ export default function MessageBubble() {
 
     return (
         <>
-            <button
-                type="button"
-                onClick={openMessage}
-                className="fixed bottom-5 right-5 z-40 flex items-center gap-3 rounded-full bg-transparent p-0 text-sm font-semibold text-white transition hover:scale-[1.03] focus:outline-none focus:ring-4 focus:ring-sky-200 sm:bg-slate-900 sm:px-4 sm:py-3 sm:shadow-xl sm:shadow-slate-300 sm:hover:bg-slate-800"
-                aria-label="Nachricht öffnen"
-            >
-                <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-sky-500 text-white">
+            <div className="group fixed bottom-5 right-5 z-40 flex items-center sm:bottom-8 sm:right-8">
+                <div
+                    className="pointer-events-none hidden translate-x-8 items-center rounded-l-full border border-sky-100 bg-white px-5 py-3 text-sm font-semibold text-slate-700 opacity-0 shadow-xl transition-all duration-300 group-hover:translate-x-4 group-hover:opacity-100 sm:flex"
+                    aria-hidden="true"
+                >
+                    <span className="pr-4">
+                        {hasOpened ? 'Nachricht' : '1 ungelesene Nachricht'}
+                    </span>
+                </div>
+
+                <button
+                    type="button"
+                    onClick={openMessage}
+                    className="relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-sky-500 text-white shadow-[0_8px_30px_rgba(14,165,233,0.4)] transition-all duration-200 hover:scale-105 hover:bg-sky-600 focus:outline-none focus:ring-4 focus:ring-sky-200 active:scale-95"
+                    aria-label={hasOpened ? 'Nachricht öffnen' : '1 ungelesene Nachricht öffnen'}
+                >
                     <MessageIcon />
 
                     {!hasOpened && (
-                        <span className="absolute -right-1 -top-1 flex h-4 w-4">
-                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-300 opacity-75" />
-                            <span className="relative inline-flex h-4 w-4 rounded-full bg-sky-400 ring-2 ring-white" />
+                        <span className="absolute right-1 top-1 flex h-3.5 w-3.5">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75" />
+                            <span className="relative inline-flex h-3.5 w-3.5 rounded-full border-2 border-white bg-rose-500" />
                         </span>
                     )}
-                </span>
-
-                <span className="hidden sm:inline">
-                    {hasOpened ? 'Nachricht' : '1 ungelesene Nachricht'}
-                </span>
-            </button>
+                </button>
+            </div>
 
             {isOpen && (
                 <div
