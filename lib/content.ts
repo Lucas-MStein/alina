@@ -27,21 +27,21 @@ export const galleryImages = [
     },
     {
         src: '/photos/photo-4.jpg',
-        alt: 'Schwäne',
-        title: 'Erinnerst du dich daran?',
-        description: 'Us in another universe.',
+        alt: 'Nagelstudio',
+        title: '💅🏼',
+        description: 'Nagelstudio. Cool.',
     },
     {
         src: '/photos/photo-5.jpg',
-        alt: 'Lächelnder besonderer Moment',
-        title: 'Ein Herzensmoment',
-        description: 'Einer dieser Erinnerungen, die man nie vergisst.',
+        alt: 'Decke',
+        title: 'Was ne Decke!',
+        description: 'Da wirkst du ganz klein.',
     },
     {
         src: '/photos/photo-6.jpg',
-        alt: 'Schönes persönliches Bild',
-        title: 'Heute und für immer',
-        description: 'Eine kleine Galerie für einen besonderen Menschen.',
+        alt: 'Super Grimasse',
+        title: '🤪',
+        description: 'Da siehst du super aus. Wie immer.',
     },
 ]
 
@@ -69,13 +69,13 @@ export const releaseNotes: ReleaseNote[] = [
         kind: 'issue',
         label: 'Known Issue',
         title: 'Manchmal ist alles etwas viel.',
-        text: 'Bug wird noch untersucht. Bester Workaround: Kaffee, Pausen & atmen.',
+        text: 'Bug wird noch untersucht. Bester Workaround: Tee, Pausen & atmen.',
     },
     {
         kind: 'patch',
         label: 'Patch Note',
-        title: 'System-Erleichterung.',
-        text: 'Diese Seite versucht, alles ein kleines bisschen leichter zu machen.',
+        title: 'System-Überraschung.',
+        text: 'Diese Seite versucht, dich digital zu überraschen.',
     },
 ]
 
