@@ -8,7 +8,7 @@ export const REVEAL_DATES = {
 export type RevealKey = keyof typeof REVEAL_DATES
 
 const DEV_UNLOCK_OVERRIDES: Record<RevealKey, boolean> = {
-    heroButtons: false,
+    heroButtons: true,
     memories: false,
     letter: false,
     surprise: false,

@@ -7,7 +7,8 @@ import MemoryCards from '@/components/MemoryCards'
 import MessageBubble from '@/components/MessageBubble'
 import SurpriseButton from '@/components/SurpriseButton'
 import TermsFooter from '@/components/TermsFooter'
-import { HeartIcon, TerminalIcon } from '@/components/Icons'
+import TopNav from '@/components/TopNav'
+import { HeartIcon } from '@/components/Icons'
 import { letterText, memories } from '@/lib/content'
 import { REVEAL_DATES, isUnlocked } from '@/lib/reveal'
 
@@ -27,24 +28,7 @@ export default function Home() {
                 className="pointer-events-none absolute right-[-10%] top-[20%] h-[40%] w-[40%] rounded-full bg-blue-50/60 blur-[100px]"
             />
 
-            <nav className="sticky top-0 z-40 flex w-full items-center justify-between border-b border-sky-100/50 bg-white/60 px-4 py-4 backdrop-blur-md sm:px-6">
-                <div className="flex items-center gap-2 text-slate-700">
-                    <TerminalIcon className="h-4 w-4 text-sky-500" />
-                    <span className="font-[family:var(--font-mono)] text-sm font-medium">
-                        alinaist23.de
-                    </span>
-                </div>
-
-                <div className="flex items-center gap-2 rounded-full border border-sky-100 bg-sky-50 px-3 py-1.5 shadow-sm">
-                    <span
-                        aria-hidden="true"
-                        className="h-2 w-2 animate-pulse rounded-full bg-emerald-400"
-                    />
-                    <span className="font-[family:var(--font-mono)] text-[10px] font-bold uppercase tracking-wider text-sky-800">
-                        System Online
-                    </span>
-                </div>
-            </nav>
+            <TopNav />
 
             <main className="relative z-10 mx-auto max-w-5xl space-y-24 px-4 py-12 sm:space-y-32 sm:px-6 md:py-20 lg:px-8">
                 <HeroDashboard />
