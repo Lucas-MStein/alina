@@ -3,17 +3,14 @@ import ReleaseNotes from '@/components/ReleaseNotes'
 import ModuleOverview from '@/components/ModuleOverview'
 import Letter from '@/components/Letter'
 import LockedSection from '@/components/LockedSection'
-import MemoryCards from '@/components/MemoryCards'
 import MessageBubble from '@/components/MessageBubble'
 import SurpriseButton from '@/components/SurpriseButton'
 import TermsFooter from '@/components/TermsFooter'
 import TopNav from '@/components/TopNav'
-import { HeartIcon } from '@/components/Icons'
-import { letterText, memories } from '@/lib/content'
+import { letterText } from '@/lib/content'
 import { REVEAL_DATES, isUnlocked } from '@/lib/reveal'
 
 export default function Home() {
-    const memoriesUnlocked = isUnlocked('memories', REVEAL_DATES.memories)
     const letterUnlocked = isUnlocked('letter', REVEAL_DATES.letter)
     const surpriseUnlocked = isUnlocked('surprise', REVEAL_DATES.surprise)
 
@@ -36,25 +33,6 @@ export default function Home() {
                 <ReleaseNotes />
 
                 <ModuleOverview />
-
-                <section id="memories" className="space-y-8">
-                    <div className="flex items-center gap-3">
-                        <div className="rounded-xl bg-rose-100 p-2.5 text-rose-500">
-                            <HeartIcon className="h-6 w-6" />
-                        </div>
-                        <h2 className="text-3xl font-bold tracking-tight text-slate-800">
-                            Memory Archive
-                        </h2>
-                    </div>
-
-                    <LockedSection
-                        unlocked={memoriesUnlocked}
-                        unlockDate={REVEAL_DATES.memories}
-                        title="Erinnerungen werden bald freigeschaltet"
-                    >
-                        <MemoryCards memories={memories} />
-                    </LockedSection>
-                </section>
 
                 <section id="letter">
                     <LockedSection

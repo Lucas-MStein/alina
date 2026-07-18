@@ -8,13 +8,54 @@ import {
     LockIcon,
     MessageIcon,
 } from './Icons'
-import { REVEAL_DATES, isUnlocked } from '@/lib/reveal'
+import { REVEAL_DATES, formatGermanDate, isUnlocked } from '@/lib/reveal'
+
+type HeroModuleButtonProps = {
+    label: string
+    href: string
+    unlocked: boolean
+    unlockDate: string
+}
+
+function HeroModuleButton({
+    label,
+    href,
+    unlocked,
+    unlockDate,
+}: HeroModuleButtonProps) {
+    if (unlocked) {
+        return (
+            <Link
+                href={href}
+                className="group flex flex-1 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white py-3.5 text-sm font-semibold text-slate-800 transition-colors hover:border-sky-400 hover:bg-sky-50"
+            >
+                {label}
+                <span className="rounded bg-sky-100 px-2 py-0.5 font-[family:var(--font-mono)] text-[10px] font-bold uppercase tracking-wider text-sky-700">
+                    Open
+                </span>
+            </Link>
+        )
+    }
+
+    return (
+        <div
+            aria-disabled="true"
+            title={`Freischaltung am ${formatGermanDate(unlockDate)}`}
+            className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50/80 py-3.5 text-sm font-semibold text-slate-400"
+        >
+            {label}
+            <span className="inline-flex items-center gap-1 rounded bg-slate-100 px-2 py-0.5 font-[family:var(--font-mono)] text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                <LockIcon className="h-2.5 w-2.5" />
+                Locked
+            </span>
+        </div>
+    )
+}
 
 export default function HeroDashboard() {
-    const heroButtonsUnlocked = isUnlocked(
-        'heroButtons',
-        REVEAL_DATES.heroButtons,
-    )
+    const galleryUnlocked = isUnlocked('gallery', REVEAL_DATES.gallery)
+    const quizUnlocked = isUnlocked('quiz', REVEAL_DATES.quiz)
+    const heroButtonsUnlocked = galleryUnlocked || quizUnlocked
 
     return (
         <section className="flex flex-col items-center space-y-10 text-center">
@@ -68,7 +109,11 @@ export default function HeroDashboard() {
                             Module
                         </span>
                         <StatusBadge tone="warning">
-                            {heroButtonsUnlocked ? 'Partial unlock' : 'Locked'}
+                            {galleryUnlocked && quizUnlocked
+                                ? 'Unlocked'
+                                : heroButtonsUnlocked
+                                  ? 'Partial unlock'
+                                  : 'Locked'}
                         </StatusBadge>
                     </div>
 
@@ -94,30 +139,23 @@ export default function HeroDashboard() {
 
                 <LockedSection
                     unlocked={heroButtonsUnlocked}
-                    unlockDate={REVEAL_DATES.heroButtons}
+                    unlockDate={REVEAL_DATES.gallery}
                     title="Bald geht es weiter"
                     variant="compact"
                 >
                     <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-                        <Link
+                        <HeroModuleButton
+                            label="Galerie"
                             href="/gallery"
-                            className="group flex flex-1 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white py-3.5 text-sm font-semibold text-slate-800 transition-colors hover:border-sky-400 hover:bg-sky-50"
-                        >
-                            Galerie
-                            <span className="rounded bg-sky-100 px-2 py-0.5 font-[family:var(--font-mono)] text-[10px] font-bold uppercase tracking-wider text-sky-700">
-                                Open
-                            </span>
-                        </Link>
-
-                        <Link
+                            unlocked={galleryUnlocked}
+                            unlockDate={REVEAL_DATES.gallery}
+                        />
+                        <HeroModuleButton
+                            label="Quiz"
                             href="/quiz"
-                            className="group flex flex-1 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-white py-3.5 text-sm font-semibold text-slate-800 transition-colors hover:border-sky-400 hover:bg-sky-50"
-                        >
-                            Quiz
-                            <span className="rounded bg-sky-100 px-2 py-0.5 font-[family:var(--font-mono)] text-[10px] font-bold uppercase tracking-wider text-sky-700">
-                                Open
-                            </span>
-                        </Link>
+                            unlocked={quizUnlocked}
+                            unlockDate={REVEAL_DATES.quiz}
+                        />
                     </div>
                 </LockedSection>
             </div>

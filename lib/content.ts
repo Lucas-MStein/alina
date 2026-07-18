@@ -1,26 +1,3 @@
-export const memories = [
-    {
-        year: 'Der Anfang',
-        title: 'Unser erstes richtig schönes Treffen',
-        text: 'Ich weiß noch genau, wie besonders sich dieser Tag angefühlt hat. Seitdem gibt es so viele Momente, an die ich immer wieder gerne zurückdenke.',
-    },
-    {
-        year: 'Ein Lieblingsmoment',
-        title: 'Die kleinen Dinge mit dir',
-        text: 'Mit dir sind selbst normale Tage irgendwie schöner, leichter und einfach besonderer.',
-    },
-    {
-        year: 'Was ich an dir mag',
-        title: 'Deine Art',
-        text: 'Ich mag an dir, dass du auf deine ganz eigene Weise Ruhe, Wärme und Freude mitbringst. Genau das macht dich für mich so besonders.',
-    },
-    {
-        year: 'Heute',
-        title: 'Dein Tag',
-        text: 'Heute geht es nur um dich. Und diese kleine Seite soll dir zeigen, wie wichtig du mir bist.',
-    },
-]
-
 export const letterText = [
     'Alles Gute zum Geburtstag, Alina.',
     'Ich wollte dir nicht einfach nur gratulieren, sondern dir etwas machen, das persönlicher ist und nur für dich gedacht ist.',
@@ -102,37 +79,18 @@ export const releaseNotes: ReleaseNote[] = [
     },
 ]
 
-export type ModuleKey =
-    | 'memories'
-    | 'gallery'
-    | 'quiz'
-    | 'letter'
-    | 'surprise'
-    | 'terms'
+export type ModuleKey = 'gallery' | 'quiz' | 'letter' | 'surprise'
 
 export type ModuleDefinition = {
     key: ModuleKey
-    icon:
-        | 'database'
-        | 'image'
-        | 'brain'
-        | 'message'
-        | 'gift'
-        | 'file'
+    icon: 'image' | 'brain' | 'message' | 'gift'
     title: string
     description: string
     href?: string
-    action?: 'scroll' | 'terms'
+    action?: 'scroll'
 }
 
 export const modules: ModuleDefinition[] = [
-    {
-        key: 'memories',
-        icon: 'database',
-        title: 'Erinnerungen',
-        description: 'Ein kleines Archiv unserer schönsten Momente.',
-        action: 'scroll',
-    },
     {
         key: 'gallery',
         icon: 'image',
@@ -160,13 +118,6 @@ export const modules: ModuleDefinition[] = [
         title: 'Surprise',
         description: 'Ein undokumentiertes Feature. Wird pünktlich zum Release ausgeliefert.',
         action: 'scroll',
-    },
-    {
-        key: 'terms',
-        icon: 'file',
-        title: 'AGB',
-        description: 'Allgemeine Beziehungsbedingungen. Bitte bei Gelegenheit lesen.',
-        action: 'terms',
     },
 ]
 

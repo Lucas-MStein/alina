@@ -2,13 +2,10 @@
 
 import Link from 'next/link'
 import type { ComponentType, ReactNode, SVGProps } from 'react'
-import { useTerms } from './TermsProvider'
 import {
     ArrowRightIcon,
     BrainIcon,
     CalendarIcon,
-    DatabaseIcon,
-    FileTextIcon,
     GiftIcon,
     ImageIcon,
     LockIcon,
@@ -16,38 +13,19 @@ import {
     UnlockIcon,
 } from './Icons'
 import StatusBadge from './StatusBadge'
-import {
-    modules,
-    type ModuleDefinition,
-    type ModuleKey,
-} from '@/lib/content'
-import {
-    REVEAL_DATES,
-    formatGermanDate,
-    isUnlocked,
-    type RevealKey,
-} from '@/lib/reveal'
+import { modules, type ModuleDefinition } from '@/lib/content'
+import { REVEAL_DATES, formatGermanDate, isUnlocked } from '@/lib/reveal'
 
 type IconComponent = ComponentType<SVGProps<SVGSVGElement>>
 
 const ICONS: Record<ModuleDefinition['icon'], IconComponent> = {
-    database: DatabaseIcon,
     image: ImageIcon,
     brain: BrainIcon,
     message: MessageIcon,
     gift: GiftIcon,
-    file: FileTextIcon,
 }
 
 type ModuleStatus = 'unlocked' | 'scheduled' | 'locked'
-
-const REVEAL_KEY_BY_MODULE: Partial<Record<ModuleKey, RevealKey>> = {
-    memories: 'memories',
-    gallery: 'heroButtons',
-    quiz: 'heroButtons',
-    letter: 'letter',
-    surprise: 'surprise',
-}
 
 function scrollToId(id: string) {
     const target = document.getElementById(id)
@@ -65,7 +43,6 @@ type ModuleCardProps = {
 function ModuleCard({ module, status, unlockLabel }: ModuleCardProps) {
     const Icon = ICONS[module.icon]
     const isUnlockedStatus = status === 'unlocked'
-    const { open: openTerms } = useTerms()
 
     const iconWrapperClasses = isUnlockedStatus
         ? 'bg-sky-100 text-sky-600 group-hover:bg-sky-500 group-hover:text-white'
@@ -149,18 +126,6 @@ function ModuleCard({ module, status, unlockLabel }: ModuleCardProps) {
         )
     }
 
-    if (module.action === 'terms') {
-        return (
-            <button
-                type="button"
-                onClick={openTerms}
-                className={`${commonClasses} text-left`}
-            >
-                {inner}
-            </button>
-        )
-    }
-
     if (module.action === 'scroll') {
         return (
             <button
@@ -177,6 +142,14 @@ function ModuleCard({ module, status, unlockLabel }: ModuleCardProps) {
 }
 
 export default function ModuleOverview() {
+    const nextLockedKey = [...modules]
+        .filter((m) => !isUnlocked(m.key, REVEAL_DATES[m.key]))
+        .sort(
+            (a, b) =>
+                new Date(REVEAL_DATES[a.key]).getTime() -
+                new Date(REVEAL_DATES[b.key]).getTime(),
+        )[0]?.key
+
     return (
         <section className="space-y-8">
             <div className="flex items-center gap-3">
@@ -188,24 +161,20 @@ export default function ModuleOverview() {
                 </h2>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
                 {modules.map((module) => {
-                    const revealKey = REVEAL_KEY_BY_MODULE[module.key]
-                    const unlocked = revealKey
-                        ? isUnlocked(revealKey, REVEAL_DATES[revealKey])
-                        : true
+                    const unlocked = isUnlocked(module.key, REVEAL_DATES[module.key])
+                    const isNext = !unlocked && module.key === nextLockedKey
 
                     const status: ModuleStatus = unlocked
                         ? 'unlocked'
-                        : module.key === 'gallery'
+                        : isNext
                           ? 'scheduled'
                           : 'locked'
 
                     const unlockLabel = unlocked
                         ? 'Verfügbar'
-                        : revealKey
-                          ? formatGermanDate(REVEAL_DATES[revealKey])
-                          : '—'
+                        : formatGermanDate(REVEAL_DATES[module.key])
 
                     return (
                         <ModuleCard
