@@ -28,7 +28,7 @@ export default function GalleryPage() {
                 </div>
 
                 <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {galleryImages.map((image) => (
+                    {galleryImages.map((image, index) => (
                         <article
                             key={image.src}
                             className="group overflow-hidden rounded-[2rem] bg-white shadow-sm ring-1 ring-slate-200"
@@ -38,6 +38,7 @@ export default function GalleryPage() {
                                     src={image.src}
                                     alt={image.alt}
                                     fill
+                                    priority={index < 4}
                                     className="object-cover transition duration-500 group-hover:scale-105"
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />

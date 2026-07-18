@@ -48,7 +48,7 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="de">
+        <html lang="de" data-scroll-behavior="smooth">
         <body
             className={`${playfair.variable} ${inter.variable} ${jetbrainsMono.variable} bg-[#FAFCFF] text-slate-800 antialiased selection:bg-sky-200 selection:text-sky-900`}
         >
