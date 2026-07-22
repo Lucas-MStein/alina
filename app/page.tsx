@@ -10,6 +10,8 @@ import TopNav from '@/components/TopNav'
 import { letterText } from '@/lib/content'
 import { REVEAL_DATES, isUnlocked } from '@/lib/reveal'
 
+export const revalidate = 60
+
 export default function Home() {
     const letterUnlocked = isUnlocked('letter', REVEAL_DATES.letter)
     const surpriseUnlocked = isUnlocked('surprise', REVEAL_DATES.surprise)

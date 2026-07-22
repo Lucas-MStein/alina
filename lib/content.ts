@@ -123,38 +123,88 @@ export const modules: ModuleDefinition[] = [
 
 export const quizQuestions = [
     {
-        question: 'Welcher Moment passt am besten zu uns?',
+        question: 'Was ist mein Lieblingssatz?',
         answers: [
-            'Ein perfekter Plan, der genau so umgesetzt wird',
-            'Ein schöner Moment, der spontan besonders wird',
-            'Nur Stress und zu wenig Zeit',
-            'Nichts davon',
+            'Das muss ja ragebait sein',
+            'Es gibt für alles ein erstes Mal',
+            'Setz dich einfach auf mein Gesicht',
+            'Alles irgenwie',
+        ],
+        correctIndex: 3,
+    },
+    {
+        question: 'Wer ist der GOAT im Basketball?',
+        answers: [
+            'Michael Jordan',
+            'Kobe Bryant',
+            'LeBron James',
+            'James Harden',
+        ],
+        correctIndex: 2,
+    },
+    {
+        question: 'Wer ist mein Lieblingscharakter aus den Star Wars Filmen?',
+        answers: [
+            'Padme Amidala',
+            'Obi-Wan Kenobi',
+            'Luke Skywalker',
+            'Darth Vader',
         ],
         correctIndex: 1,
     },
     {
-        question: 'Was macht gemeinsame Zeit mit dir für mich besonders?',
+        question: 'Wer ist mein all-time favorite US-Künstler?',
         answers: [
-            'Weil alles dadurch leichter und schöner wirkt',
-            'Weil man dabei produktiver ist',
-            'Weil dann weniger los ist',
-            'Weil es einfach zufällig nett ist',
+            'Kanye West',
+            'Travis Scott',
+            '21 Savage',
+            'Drake',
         ],
         correctIndex: 0,
     },
     {
-        question: 'Was beschreibt dich am besten?',
-        answers: ['Chaotisch', 'Besonders, liebevoll und einzigartig', 'Immer ernst', 'Ganz still und unnahbar'],
+        question: 'Was esse ich am liebsten?',
+        answers: [
+            'Spinat',
+            'Burger',
+            'Maultaschen',
+            'Pizza',
+        ],
+        correctIndex: 2,
+    },
+    {
+        question: 'Wann sind wir auf Hinge gematcht?',
+        answers: ['22.03.26', '23.03.26', '24.03.26', '25.03.26'],
+        correctIndex: 0,
+    },
+    {
+        question: 'Wo waren wir am 03. Mai 2026?',
+        answers: [
+            'in Calw',
+            'in Heidelberg',
+            'in Mosbach',
+            'Auschließlich in Hemsbach',
+        ],
         correctIndex: 1,
     },
     {
-        question: 'Worum geht es auf dieser Website eigentlich?',
+        question: 'Warum sind wir nicht in die Therme in Bad Liebenzell gegangen?',
         answers: [
-            'Um irgendein Designprojekt',
-            'Um eine kleine digitale Überraschung für dich',
-            'Um ein Testprojekt für Next.js',
-            'Um einen Zufall',
+            'Mein Auto war kaputt',
+            'Ich darf keine anderen Frauen im Bikini sehen',
+            'Hatte geschlossen',
+            'Zu teuer',
         ],
-        correctIndex: 1,
+        correctIndex: 3,
+    },
+    {
+        question: 'Wie kam es zu unserem ersten Treffen?',
+        answers: [
+            'Durch einen Face-Time Anruf',
+            'Ich stand plötzlich vor deiner Tür',
+            'Du',
+            'Auschließlich in Hemsbach',
+        ],
+        correctIndex: 0,
     },
 ]
