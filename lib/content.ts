@@ -198,13 +198,23 @@ export const quizQuestions = [
         correctIndex: 3,
     },
     {
-        question: 'Wie kam es zu unserem ersten Treffen?',
+        question: 'Wer braucht länger, um sich fertig zu machen?',
         answers: [
-            'Durch einen Face-Time Anruf',
-            'Ich stand plötzlich vor deiner Tür',
-            'Du',
-            'Auschließlich in Hemsbach',
+            'Lucas',
+            'swish41',
+            'Alinas Freund',
+            'prodatlucas',
         ],
         correctIndex: 0,
+    },
+    {
+        question: 'Warum ist dein 23. Geburtstag besonders?',
+        answers: [
+            'Es ist dein erster Geburtstag mit mir zusammen',
+            'Es ist eine legendäre Rückennummer im Basketball',
+            'Es wird dein letzter sein 🫪',
+            'Drakes neues Album hat genau 23 Tracks',
+        ],
+        correctIndex: 1,
     },
 ]
