@@ -128,7 +128,7 @@ export const quizQuestions = [
             'Das muss ja ragebait sein',
             'Es gibt für alles ein erstes Mal',
             'Setz dich einfach auf mein Gesicht',
-            'Alles irgenwie',
+            'Alles irgendwie',
         ],
         correctIndex: 3,
     },

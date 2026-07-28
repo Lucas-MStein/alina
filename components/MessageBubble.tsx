@@ -23,7 +23,7 @@ function MessageIcon() {
 
 export default function MessageBubble() {
     const [isOpen, setIsOpen] = useState(false)
-    const [hasOpened, setHasOpened] = useState(false)
+    const [hasOpened, setHasOpened] = useState(true)
 
     function openMessage() {
         setIsOpen(true)
