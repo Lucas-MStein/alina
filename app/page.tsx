@@ -2,6 +2,7 @@ import HeroDashboard from '@/components/HeroDashboard'
 import ReleaseNotes from '@/components/ReleaseNotes'
 import ModuleOverview from '@/components/ModuleOverview'
 import Letter from '@/components/Letter'
+import LetterEasterEgg from "@/components/LetterEasterEgg";
 import LockedSection from '@/components/LockedSection'
 import MessageBubble from '@/components/MessageBubble'
 import SurpriseButton from '@/components/SurpriseButton'
@@ -43,6 +44,7 @@ export default function Home() {
                         title="Der Brief kommt später"
                     >
                         <Letter title="Ein Brief für dich" text={letterText} />
+                        <LetterEasterEgg />
                     </LockedSection>
                 </section>
 

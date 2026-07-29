@@ -1,9 +1,18 @@
 export const letterText = [
-    'Alles Gute zum Geburtstag, Alina.',
-    'Ich wollte dir nicht einfach nur gratulieren, sondern dir etwas machen, das persönlicher ist und nur für dich gedacht ist.',
-    'Du bist ein Mensch, der auf eine ganz besondere Art wundervoll, liebevoll und einzigartig ist. Und ich bin sehr dankbar für die Zeit mit dir und für all die Erinnerungen, die wir teilen.',
-    'Ich wünsche dir für dein neues Lebensjahr ganz viel Glück, Gesundheit, schöne Überraschungen und vor allem viele Momente, in denen du genauso strahlst wie heute.',
-    'Bleib bitte genauso wundervoll, wie du bist. 💙',
+    'Du bist für mich ein Mensch, der viel mehr richtig macht, als du selbst manchmal wahrnimmst. Gerade dann, wenn du zweifelst, sehe ich trotzdem all das Gute, das du in dir trägst.',
+    'Und ich weiß, dass Worte allein nicht immer reichen, damit dieses Gefühl wirklich bei dir ankommt. Trotzdem möchte ich es dir so oft sagen, bis du es irgendwann selbst glauben kannst.',
+    'Bei dir habe ich das Gefühl, dass selbst die kleinen Dinge etwas Besonderes werden können. Ein Gespräch, ein gemeinsamer Moment oder einfach nur deine Nähe bedeuten mir mehr, als du vielleicht denkst.',
+    'Ich bewundere, wie viel du trägst, wie viel du versuchst zusammenzuhalten und wie sehr du dich darum bemühst, allem und jedem gerecht zu werden.',
+    'Sicherlich gibt es Tage, an denen dir das nicht gelingt. Aber diese Tage machen dich nicht weniger wertvoll, weniger liebenswert oder weniger besonders.',
+    'Trotz aller Zweifel, die manchmal in dir laut werden, bist du nicht zu wenig. Du musst dich nicht erst verändern, verbessern oder beweisen, um wichtig zu sein.',
+    'Gerade deine Art, dein Lächeln, deine Gedanken und auch deine kleinen Unsicherheiten machen dich zu dem Menschen, den ich so gern habe.',
+    'Und selbst wenn du einmal nicht stark sein kannst, musst du es bei mir auch nicht sein. Du darfst müde sein, überfordert sein und auch einfach einmal nicht wissen, wie es weitergeht.',
+    'Tatsächlich wünsche ich mir, dass du dich bei mir nicht verstellen oder zusammenreißen musst. Ich möchte nicht nur die leichten Seiten von dir kennenlernen, sondern dich genauso annehmen, wie du gerade bist.',
+    'Glaub mir, wenn ich dir sage, dass du mir guttust. Nicht, weil du immer alles perfekt machst, sondern weil du du bist.',
+    'Es gibt so vieles an dir, das du vielleicht selbst als selbstverständlich ansiehst, das für mich aber alles andere als selbstverständlich ist.',
+    'Nichts davon hängt davon ab, ob du heute besonders produktiv, fröhlich oder stark bist. Dein Wert verändert sich nicht mit deiner Stimmung oder mit dem, was du an einem Tag geschafft hast.',
+    'Und vielleicht ist genau das die wichtigste Sache, die ich dir mit diesem Brief sagen möchte: Du musst nicht mehr leisten, um mehr wert zu sein.',
+    'Ganz egal, was dein Kopf dir manchmal erzählt – für mich bist du genau so richtig, wie du bist. 💙',
 ]
 
 export const galleryImages = [

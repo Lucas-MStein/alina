@@ -10,7 +10,7 @@ export type RevealKey = keyof typeof REVEAL_DATES
 const DEV_UNLOCK_OVERRIDES: Record<RevealKey, boolean> = {
     gallery: true,
     quiz: false,
-    letter: false,
+    letter: true,
     surprise: false,
 }
 
