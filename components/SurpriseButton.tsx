@@ -39,7 +39,7 @@ export default function SurpriseButton() {
             ) : (
                 <div className="animate-in fade-in zoom-in duration-500 flex justify-center">
                     <a
-                        href="https://open.spotify.com/intl-de/track/3w9AoJaf5Q843eOWcNThWr?si=ce55c862cb3a48c7"
+                        href="https://open.spotify.com/track/3w9AoJaf5Q843eOWcNThWr?si=ce55c862cb3a48c7"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-300 transition duration-200 hover:scale-[1.03] hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-slate-200"
